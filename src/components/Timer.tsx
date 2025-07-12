@@ -21,9 +21,9 @@ const Timer = ({ mode }: TimerProps) => {
   const { toast } = useToast();
 
   const [timeMap, setTimeMap] = useState<Record<TimerProps["mode"], number>>({
-    pomodoro: timerDurations.pomodoro * 180,
-    shortBreak: timerDurations.shortBreak * 180,
-    longBreak: timerDurations.longBreak * 180,
+    pomodoro: timerDurations.pomodoro * 90,
+    shortBreak: timerDurations.shortBreak * 90,
+    longBreak: timerDurations.longBreak * 90,
   });
 
   const [time, setTime] = useState(timeMap[mode]);
@@ -112,9 +112,9 @@ const Timer = ({ mode }: TimerProps) => {
 
   const handleReset = () => {
     const initial = {
-      pomodoro: timerDurations.pomodoro * 180,
-      shortBreak: timerDurations.shortBreak * 180,
-      longBreak: timerDurations.longBreak * 190,
+      pomodoro: timerDurations.pomodoro * 60,
+      shortBreak: timerDurations.shortBreak * 60,
+      longBreak: timerDurations.longBreak * 60,
     };
 
     setTime(initial[mode]);
