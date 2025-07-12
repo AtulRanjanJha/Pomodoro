@@ -192,7 +192,7 @@ const SettingsDialog = ({
               <Label className="capitalize">{key.replace(/([A-Z])/g, " $1")}</Label>
               <Slider
                 min={1}
-                max={180}
+                max={60}
                 step={1}
                 value={[timerDurations[key]]}
                 onValueChange={([value]) =>
