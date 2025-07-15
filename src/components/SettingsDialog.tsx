@@ -187,23 +187,30 @@ const SettingsDialog = ({
           <div className="font-medium" style={{ color: glowColor }}>
             Timer Settings
           </div>
-          {(["pomodoro", "shortBreak", "longBreak"] as const).map((key) => (
-            <div key={key}>
-              <Label className="capitalize">{key.replace(/([A-Z])/g, " $1")}</Label>
-              <Slider
-                min={1}
-                max={180}
-                step={1}
-                value={[timerDurations[key]]}
-                onValueChange={([value]) =>
-                  setTimerDurations({ ...timerDurations, [key]: value })
-                }
-              />
-              <div className="text-xs text-white/70">
-                {timerDurations[key]} minutes
-              </div>
-            </div>
-          ))}
+          const maxValues = {
+              pomodoro: 180,
+              shortBreak: 20,
+              longBreak: 30,
+            };
+
+{(["pomodoro", "shortBreak", "longBreak"] as const).map((key) => (
+  <div key={key}>
+    <Label className="capitalize">{key.replace(/([A-Z])/g, " $1")}</Label>
+    <Slider
+      min={1}
+      max={maxValues[key]} // ✅ custom max for each mode
+      step={1}
+      value={[timerDurations[key]]}
+      onValueChange={([value]) =>
+        setTimerDurations({ ...timerDurations, [key]: value })
+      }
+    />
+    <div className="text-xs text-white/70">
+      {timerDurations[key]} minutes
+    </div>
+  </div>
+))}
+
         </div>
 
         {/* Alert Sounds */}
