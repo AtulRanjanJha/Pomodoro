@@ -1,7 +1,7 @@
-⏱️ Study Timer App
+##⏱️ Study Timer App
 A customizable and visually stunning Pomodoro timer built with React + TypeScript, featuring multiple modes (Pomodoro, Short Break, Long Break), dynamic backgrounds, alert sounds, and aesthetic themes.
 
-🚀 Features
+##🚀 Features
 🎨 Theme and font customization
 
 ⏰ Set durations independently for Pomodoro, Short Break, and Long Break
@@ -16,20 +16,20 @@ A customizable and visually stunning Pomodoro timer built with React + TypeScrip
 
 🛠️ Responsive and smooth user interface using Tailwind CSS
 
-🧰 Tech Stack
-React + TypeScript
+##🧰 Tech Stack
+*React + TypeScript
 
-Tailwind CSS
+*Tailwind CSS
 
-Lucide Icons
+*Lucide Icons
 
-Context API for global state
+*Context API for global state
 
-Audio for alarm and ambient background sounds
+*Audio for alarm and ambient background sounds
 
-🔗 Link: https://pomodoroappp.netlify.app/
+##🔗 Link: https://pomodoroappp.netlify.app/
 
-📦 Folder Structure
+##📦 Folder Structure
 php
 Copy code
 src/
@@ -45,7 +45,8 @@ src/
 │   └── Index.tsx           # Main page
 └── public/
     └── sounds/             # Alert sound files (bell.mp3, etc.)
-🛠️ Setup Instructions
+    
+##🛠️ Setup Instructions
 1. Clone the Repository
 bash
 Copy code
@@ -63,7 +64,8 @@ npm run dev
 bash
 Copy code
 npm run build
-⚙️ Customizing Max Timer Durations
+
+##⚙️ Customizing Max Timer Durations
 You can change the max allowed time for each timer in SettingsDialog.tsx:
 
 tsx
@@ -73,18 +75,19 @@ const maxValues = {
   shortBreak: 20,
   longBreak: 30,
 };
-📸 Preview
+
+##📸 Preview
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6033173e-d309-49f9-933a-911c79a4a613" />
 
 
-🙌 Credits
+##🙌 Credits
 UI components inspired by ShadCN
 
 Icons provided by Lucide
 
 Sounds from FreeSound or other open sources
 
-📄 License
+##📄 License
 This project is licensed under the MIT License.
 
 
