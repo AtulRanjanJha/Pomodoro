@@ -76,6 +76,7 @@ const SettingsDialog = ({
               <SelectValue placeholder="Choose Theme" />
             </SelectTrigger>
             <SelectContent className="bg-[#1A1A1A] text-white border-white/10">
+              <SelectItem value="nissan-gtr">Nissan Gtr</SelectItem>
               <SelectItem value="cyberpunk">Cyberpunk</SelectItem>
               <SelectItem value="cyberpunk1">Cyberpunk 1</SelectItem>
               <SelectItem value="sunset">Sunset Glow</SelectItem>
