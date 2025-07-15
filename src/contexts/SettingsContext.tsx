@@ -149,6 +149,12 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       setBackgroundType("image");
       setGlowColor("#39ff14");
       setFontFamily("Orbitron");
+    } else if (theme === "nissan-gtr") {
+      // ✅ New video theme
+      setBackground("/videos/nissan-gtr.mp4");
+      setBackgroundType("video");
+      setGlowColor("#ff2d55"); // Customize as desired
+      setFontFamily("Orbitron");
     }
   }, [theme]);
 
