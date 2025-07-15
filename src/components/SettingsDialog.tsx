@@ -52,7 +52,7 @@ const SettingsDialog = ({
   const maxValues = {
     pomodoro: 180,
     shortBreak: 20,
-    longBreak: 30,
+    longBreak: 40,
   };
 
   return (
