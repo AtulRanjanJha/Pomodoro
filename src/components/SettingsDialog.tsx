@@ -36,7 +36,6 @@ const SettingsDialog = ({
     setTimerDurations,
     alertSound,
     setAlertSound,
-   
     playAlertSound,
     glowColor,
     setGlowColor,
@@ -49,6 +48,12 @@ const SettingsDialog = ({
     backgroundColor,
     setBackgroundColor,
   } = useSettings();
+
+  const maxValues = {
+    pomodoro: 180,
+    shortBreak: 20,
+    longBreak: 30,
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -162,55 +167,48 @@ const SettingsDialog = ({
             </SelectContent>
           </Select>
         </div>
+
+        {/* Font Color */}
         <div className="space-y-2">
-  <Label className="text-white">Font Color</Label>
-  <div className="flex items-center gap-4">
-    <input
-      type="color"
-      value={fontColor}
-      onChange={(e) => setFontColor(e.target.value)}
-      className="w-12 h-10 p-1 rounded border border-white/20 bg-transparent"
-    />
-    <button
-      onClick={() => setFontColor("#FFFFFF")} // default color
-      className="text-sm text-white/70 underline hover:text-white"
-    >
-      Reset
-    </button>
-  </div>
-</div>
-
-
+          <Label className="text-white">Font Color</Label>
+          <div className="flex items-center gap-4">
+            <input
+              type="color"
+              value={fontColor}
+              onChange={(e) => setFontColor(e.target.value)}
+              className="w-12 h-10 p-1 rounded border border-white/20 bg-transparent"
+            />
+            <button
+              onClick={() => setFontColor("#FFFFFF")}
+              className="text-sm text-white/70 underline hover:text-white"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
 
         {/* Timer Durations */}
         <div className="space-y-4">
           <div className="font-medium" style={{ color: glowColor }}>
             Timer Settings
           </div>
-          const maxValues = {
-              pomodoro: 180,
-              shortBreak: 20,
-              longBreak: 30,
-            };
-
-{(["pomodoro", "shortBreak", "longBreak"] as const).map((key) => (
-  <div key={key}>
-    <Label className="capitalize">{key.replace(/([A-Z])/g, " $1")}</Label>
-    <Slider
-      min={1}
-      max={maxValues[key]} // ✅ custom max for each mode
-      step={1}
-      value={[timerDurations[key]]}
-      onValueChange={([value]) =>
-        setTimerDurations({ ...timerDurations, [key]: value })
-      }
-    />
-    <div className="text-xs text-white/70">
-      {timerDurations[key]} minutes
-    </div>
-  </div>
-))}
-
+          {(["pomodoro", "shortBreak", "longBreak"] as const).map((key) => (
+            <div key={key}>
+              <Label className="capitalize">{key.replace(/([A-Z])/g, " $1")}</Label>
+              <Slider
+                min={1}
+                max={maxValues[key]}
+                step={1}
+                value={[timerDurations[key]]}
+                onValueChange={([value]) =>
+                  setTimerDurations({ ...timerDurations, [key]: value })
+                }
+              />
+              <div className="text-xs text-white/70">
+                {timerDurations[key]} minutes
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Alert Sounds */}
@@ -258,10 +256,10 @@ const SettingsDialog = ({
             ))}
           </RadioGroup>
         </div>
-
       </DialogContent>
     </Dialog>
   );
 };
 
 export default SettingsDialog;
+
