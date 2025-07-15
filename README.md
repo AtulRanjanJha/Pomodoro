@@ -1,4 +1,4 @@
-# ⏱️ Study Timer App 
+# ⏱️ Pomodoro App 
 A customizable and visually stunning Pomodoro timer built with React + TypeScript, featuring multiple modes (Pomodoro, Short Break, Long Break), dynamic backgrounds, alert sounds, and aesthetic themes.
 
 ## 🚀 Features
@@ -41,8 +41,8 @@ src/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/study-timer-app.git
-cd study-timer-app
+git clone https://github.com/AtulRanjanJha/Pomodoro.git
+cd Pomodoro
 ```
 
 ### 2. Install Dependencies
