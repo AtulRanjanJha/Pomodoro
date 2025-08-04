@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Timer from "@/components/Timer";
-import { Settings, Volume2, Trees, Cloud } from "lucide-react";
+import { Settings, Volume2, VolumeX, Trees, Cloud } from "lucide-react"; // ✅ VolumeX added
 import { Button } from "@/components/ui/button";
 import TimerModeSelector from "@/components/TimerModeSelector";
 import SettingsDialog from "@/components/SettingsDialog";
@@ -20,7 +20,9 @@ const IndexContent = () => {
     backgroundColor,
     fontColor,
     fontFamily,
-    timerDurations // ✅ added
+    timerDurations,
+    isMuted,           // ✅ Get mute state
+    setIsMuted         // ✅ Get setter
   } = useSettings();
 
   const soundRefs = useRef({
@@ -107,7 +109,7 @@ const IndexContent = () => {
           <video
             autoPlay
             loop
-            muted
+            muted={isMuted} // ✅ Allow audio toggle
             className="w-full h-full object-cover"
           >
             <source src={background} type="video/mp4" />
@@ -182,6 +184,21 @@ const IndexContent = () => {
             key={`${mode}-${timerDurations.pomodoro}-${timerDurations.shortBreak}-${timerDurations.longBreak}`}
             mode={mode}
           />
+
+          {/* ✅ Mute/Unmute Background Video Button */}
+          {backgroundType === "video" && background && (
+            <button
+              onClick={() => setIsMuted(!isMuted)}
+              className="mt-6 flex items-center gap-2 text-white hover:text-gray-300 transition"
+            >
+              {isMuted ? (
+                <VolumeX className="w-5 h-5" />
+              ) : (
+                <Volume2 className="w-5 h-5" />
+              )}
+              <span>{isMuted ? "Unmute Video" : "Mute Video"}</span>
+            </button>
+          )}
         </div>
 
         <SettingsDialog open={showSettings} onOpenChange={setShowSettings} />
