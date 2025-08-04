@@ -46,6 +46,8 @@ interface SettingsContextType {
   setGlowColor: (color: string) => void;
   theme: string;
   setTheme: (theme: string) => void;
+  isMuted: boolean; // ✅ added
+  setIsMuted: (val: boolean) => void; // ✅ added
 }
 
 const SettingsContext = createContext<SettingsContextType | undefined>(
@@ -79,6 +81,8 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [alertSound, setAlertSound] = useState("bell");
   const [glowColor, setGlowColor] = useState("#b15cff");
   const [theme, setTheme] = useState("");
+
+  const [isMuted, setIsMuted] = useState(true); // ✅ added mute state
 
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -150,11 +154,20 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       setGlowColor("#39ff14");
       setFontFamily("Orbitron");
     } else if (theme === "nissan-gtr") {
-      // ✅ New video theme
       setBackground("/videos/nissan-gtr.mp4");
       setBackgroundType("video");
-      setGlowColor("#ff2d55"); // Customize as desired
+      setGlowColor("#ff2d55");
       setFontFamily("Orbitron");
+    } else if (theme === "drift") {
+      setBackground("/videos/drift.mp4"); // ✅ new theme
+      setBackgroundType("video");
+      setGlowColor("#ffaa00");
+      setFontFamily("Orbitron");
+    } else if (theme === "matrix") {
+      setBackground("/videos/matrix.mp4"); // ✅ new theme
+      setBackgroundType("video");
+      setGlowColor("#00ff00");
+      setFontFamily("VT323");
     }
   }, [theme]);
 
@@ -189,6 +202,8 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         setGlowColor,
         theme,
         setTheme,
+        isMuted, // ✅ added to context
+        setIsMuted, // ✅ added to context
       }}
     >
       {children}
@@ -203,3 +218,4 @@ export function useSettings() {
   }
   return context;
 }
+
