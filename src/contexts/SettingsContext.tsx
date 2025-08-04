@@ -158,17 +158,32 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       setBackgroundType("video");
       setGlowColor("#ff2d55");
       setFontFamily("Orbitron");
-    } else if (theme === "drift") {
-      setBackground("/videos/drift.mp4"); // ✅ new theme
+    } else if (theme === "ocean") {
+      setBackground("/videos/beati.mp4"); // ✅ new theme
       setBackgroundType("video");
       setGlowColor("#ffaa00");
       setFontFamily("Orbitron");
-    } else if (theme === "matrix") {
-      setBackground("/videos/matrix.mp4"); // ✅ new theme
+    } else if (theme === "boat") {
+      setBackground("/videos/boatt.mp4"); // ✅ new theme
       setBackgroundType("video");
       setGlowColor("#00ff00");
       setFontFamily("VT323");
-    }
+    }  else if (theme === "rain") {
+      setBackground("/videos/rainn.mp4"); // ✅ new theme
+      setBackgroundType("video");
+      setGlowColor("#ffaa00");
+      setFontFamily("Orbitron");
+    }  else if (theme === "waterfall") {
+      setBackground("/videos/waterfall.mp4"); // ✅ new theme
+      setBackgroundType("video");
+      setGlowColor("#ffaa00");
+      setFontFamily("Orbitron");
+    }  else if (theme === "windtrr") {
+      setBackground("/videos/windtrr.mp4"); // ✅ new theme
+      setBackgroundType("video");
+      setGlowColor("#ffaa00");
+      setFontFamily("Orbitron");
+    } 
   }, [theme]);
 
   return (
