@@ -77,6 +77,11 @@ const SettingsDialog = ({
             </SelectTrigger>
             <SelectContent className="bg-[#1A1A1A] text-white border-white/10">
               <SelectItem value="nissan-gtr">Nissan Gtr</SelectItem>
+              <SelectItem value="ocean">Ocean</SelectItem>
+              <SelectItem value="boat">Boat</SelectItem>
+              <SelectItem value="rain">Rain</SelectItem>
+              <SelectItem value="waterfall">Waterfall</SelectItem>
+              <SelectItem value="windtrr">Windy</SelectItem>
               <SelectItem value="cyberpunk">Cyberpunk</SelectItem>
               <SelectItem value="cyberpunk1">Cyberpunk 1</SelectItem>
               <SelectItem value="sunset">Sunset Glow</SelectItem>
