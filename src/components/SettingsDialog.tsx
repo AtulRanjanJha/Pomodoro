@@ -4,7 +4,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerClose,
-} from "@/components/ui/drawer"; // ✅ using drawer
+} from "@/components/ui/drawer";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
@@ -60,7 +60,7 @@ const SettingsDialog = ({
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent
         side="right"
-        className="h-full w-[90vw] max-w-md bg-[#0d0d0d] text-white shadow-xl border-l border-white/10"
+        className="h-screen w-[90vw] max-w-md bg-[#0d0d0d] text-white shadow-xl border-l border-white/10"
         style={{
           borderLeft: `1px solid ${glowColor}`,
           boxShadow: `-4px 0 20px ${glowColor}44`,
@@ -83,6 +83,11 @@ const SettingsDialog = ({
               </SelectTrigger>
               <SelectContent className="bg-[#1A1A1A] text-white border-white/10">
                 <SelectItem value="nissan-gtr">Nissan Gtr</SelectItem>
+                <SelectItem value="ocean">Ocean</SelectItem>
+                <SelectItem value="boat">Boat</SelectItem>
+                <SelectItem value="rain">Rain</SelectItem>
+                <SelectItem value="waterfall">Waterfall</SelectItem>
+                <SelectItem value="windtrr">Windy</SelectItem>
                 <SelectItem value="cyberpunk">Cyberpunk</SelectItem>
                 <SelectItem value="cyberpunk1">Cyberpunk 1</SelectItem>
                 <SelectItem value="sunset">Sunset Glow</SelectItem>
@@ -90,17 +95,15 @@ const SettingsDialog = ({
                 <SelectItem value="tokyo">Tokyo Night</SelectItem>
                 <SelectItem value="tokyo1">Tokyo Night 1</SelectItem>
                 <SelectItem value="tokyo2">Tokyo Night 2</SelectItem>
-                <SelectItem value="drift">Drift Night</SelectItem>
-                <SelectItem value="matrix">Matrix Code</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           {/* Background Type */}
-          <div className="space-y-2">
+          <div className="flex items-center justify-between">
             <Label className="text-white">Background Type</Label>
             <Select value={backgroundType} onValueChange={setBackgroundType}>
-              <SelectTrigger className="bg-[#111] border border-white/20 text-white w-full">
+              <SelectTrigger className="bg-[#111] border border-white/20 text-white w-[120px]">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-[#1A1A1A] text-white border-white/10">
@@ -272,4 +275,3 @@ const SettingsDialog = ({
 };
 
 export default SettingsDialog;
-
