@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Timer from "@/components/Timer";
-import { Settings, Volume2, VolumeX, Trees, Cloud } from "lucide-react"; // ✅ VolumeX added
+import { Settings, Volume2, VolumeX, Trees, Cloud, Wind } from "lucide-react"; // ✅ Wind added
 import { Button } from "@/components/ui/button";
 import TimerModeSelector from "@/components/TimerModeSelector";
 import SettingsDialog from "@/components/SettingsDialog";
@@ -21,14 +21,15 @@ const IndexContent = () => {
     fontColor,
     fontFamily,
     timerDurations,
-    isMuted,           // ✅ Get mute state
-    setIsMuted         // ✅ Get setter
+    isMuted,
+    setIsMuted
   } = useSettings();
 
   const soundRefs = useRef({
     waves: new Audio("/audio/waves.mp3"),
     forest: new Audio("/audio/forest.mp3"),
     rain: new Audio("/audio/rain.mp3"),
+    wind: new Audio("/audio/wind.mp3"), // ✅ added wind sound
   });
 
   useEffect(() => {
@@ -109,7 +110,7 @@ const IndexContent = () => {
           <video
             autoPlay
             loop
-            muted={isMuted} // ✅ Allow audio toggle
+            muted={isMuted}
             className="w-full h-full object-cover"
           >
             <source src={background} type="video/mp4" />
@@ -137,6 +138,7 @@ const IndexContent = () => {
             study<span className="font-light">TimerApp</span>
           </h1>
           <div className="flex items-center gap-2">
+            {/* ✅ Sound buttons */}
             <Button
               variant="ghost"
               size="icon"
@@ -170,6 +172,18 @@ const IndexContent = () => {
             <Button
               variant="ghost"
               size="icon"
+              onClick={() => handleSoundToggle("wind")}
+              className={`opacity-90 hover:opacity-100 hover:bg-white/10 ${
+                activeSound === "wind" ? "bg-white/20" : ""
+              }`}
+            >
+              <Wind className="h-5 w-5" />
+            </Button>
+
+            {/* Settings button */}
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => setShowSettings(true)}
               className="opacity-90 hover:opacity-100 hover:bg-white/10"
             >
@@ -185,7 +199,7 @@ const IndexContent = () => {
             mode={mode}
           />
 
-          {/* ✅ Mute/Unmute Background Video Button */}
+          {/* Mute/Unmute Video */}
           {backgroundType === "video" && background && (
             <button
               onClick={() => setIsMuted(!isMuted)}
