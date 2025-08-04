@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Timer from "@/components/Timer";
-import { Settings, Volume2, VolumeX, Trees, Cloud, Wind } from "lucide-react"; // ✅ Wind added
+import { Settings, Volume2, VolumeX, Trees, Cloud, Wind, Waves } from "lucide-react"; // ✅ Wind added
 import { Button } from "@/components/ui/button";
 import TimerModeSelector from "@/components/TimerModeSelector";
 import SettingsDialog from "@/components/SettingsDialog";
@@ -140,15 +140,16 @@ const IndexContent = () => {
           <div className="flex items-center gap-2">
             {/* ✅ Sound buttons */}
             <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => handleSoundToggle("waves")}
-              className={`opacity-90 hover:opacity-100 hover:bg-white/10 ${
-                activeSound === "waves" ? "bg-white/20" : ""
-              }`}
-            >
-              <Volume2 className="h-5 w-5" />
-            </Button>
+  variant="ghost"
+  size="icon"
+  onClick={() => handleSoundToggle("waves")}
+  className={`opacity-90 hover:opacity-100 hover:bg-white/10 ${
+    activeSound === "waves" ? "bg-white/20" : ""
+  }`}
+>
+  <Waves className="h-5 w-5" />
+</Button>
+
             <Button
               variant="ghost"
               size="icon"
