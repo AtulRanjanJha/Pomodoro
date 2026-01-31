@@ -1,4 +1,3 @@
-
 # ⏱️ Pomodoro App 
 A customizable and visually stunning Pomodoro timer built with React + TypeScript, featuring multiple modes (Pomodoro, Short Break, Long Break), dynamic backgrounds, alert sounds, and aesthetic themes.
 
