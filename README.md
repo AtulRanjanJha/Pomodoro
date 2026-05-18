@@ -77,7 +77,7 @@ const maxValues = {
 ## 🙌 Credits
 - UI components inspired by ShadCN  
 - Icons provided by [Lucide](https://lucide.dev)  
-- Sounds from [FreeSound](https://freesound.org) or other open sources  
+- Sounds from [FreeSound](https://freesound.org) and other open sources  
 
 ## 📄 License
 This project is licensed under the **MIT License**.
